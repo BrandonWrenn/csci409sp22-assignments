@@ -13,8 +13,9 @@ class Flight(models.Model):
 
 
 #airline = models.ForeignKey(Flight, on_delete=models.PROTECT, related_name='airline')
+airline = models.ForeignKey(Flight, on_delete=models.PROTECT, related_name='airline')
 
 
 class Airline(models.Model):
-    airline_name = models.CharField(max_length=20)
-    airline_code = models.CharField(max_length=2)
+    airline_name = models.CharField(max_length=255)
+    airline_code = models.CharField(max_length=255)

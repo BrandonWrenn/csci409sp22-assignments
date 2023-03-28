@@ -1,9 +1,11 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from .models import Reservation
+from .forms import TicketForm
 
 def index(request):
-    # Nothing to do here
-    return HttpResponse('Hello from tickets')
+    form = TicketForm()
+    return render(request, 'tickets/index.html', {'form': form})
 
 def ticket_search(request, confirmation_number):
     # Select the singular reservation for the confirmation number
