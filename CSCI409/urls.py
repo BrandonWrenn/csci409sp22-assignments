@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+import airports.views
+
 
 import airports.views
 import flights.views
@@ -23,6 +25,8 @@ import routes.views
 import tickets.views
 
 urlpatterns = [
+    path('', airports.views.index),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('airports', include('airports.urls')),
     path('flights', include('flights.urls')),
